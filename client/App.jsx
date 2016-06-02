@@ -1,7 +1,7 @@
 
 import $ from 'jQuery';
 import 'styles/main.scss';
-import todos from 'pages/todo';
+import todos from 'pages/todo-backbone';
 import project from 'pages/project';
 import funnySquares from 'pages/funnySquares';
 import header from 'components/header';
@@ -14,7 +14,7 @@ $(function(){
   // our first javascript router
   switch (url) {
     case '/pages/todo.html':
-      todos.init();
+      todos.render();
     break;
     case '/pages/project.html':
       // init the project javascript

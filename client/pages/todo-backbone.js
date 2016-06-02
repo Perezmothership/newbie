@@ -1,8 +1,8 @@
 var $ = require('jquery');
 
  // legacy loading for bootstrap
- window.jQuery = window.$ = $;
- require('bootstrap');
+window.jQuery = window.$ = $;
+require('bootstrap');
 
 import _ from 'underscore';
 import Backbone from 'backbone';
@@ -23,12 +23,36 @@ var todoControllerView;
 
 TodoModel = Backbone.Model.extend({
   defaults: {
+  	todos:[]  
+  },
+  todoSchema: {
+  	id: 0,
+  	title: "",
+  	completed: false
   },
   fetch: function(){
+  	var data = lscache.get('todos');
+  	data = this.applySchema(data);
+  	this.set('todos', data);
     // gets the data
   },
   save: function(){
+  	var data = this.get('todos');
+  	data = this.applySchema(data);
+  	lscache.set('todos', data);
     // saves the data
+  }, 
+  applySchema: function(todos){
+  	var data = todos;
+  	var schema = this.todoSchema;
+  	data = (_.isArray(todos)) ? data: [];
+  	data = data.map(function(todo, index){
+  		todo.id = index;
+  		return _.defaults(todo, this.todoSchema);
+  	});
+
+
+  	return data;
   }
 });
 
@@ -43,7 +67,7 @@ TodoControllerView = Backbone.View.extend({
   },
   initialize: function(){},
   render: function(){
-  	alert('backbone!');
+	alert('backbone!');
   }
 });
 

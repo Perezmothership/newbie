@@ -34094,7 +34094,7 @@
 	  }
 	});
 	
-	var todoModel = new TodoModel();
+	todoModel = new TodoModel();
 	
 	// view
 	
@@ -34108,7 +34108,7 @@
 	  }
 	});
 	
-	var todoControllerView = new TodoControllerView(); // when we do this it calls ViewClass.initialize
+	todoControllerView = new TodoControllerView(); // when we do this it calls ViewClass.initialize
 	
 	module.exports = todoControllerView;
 

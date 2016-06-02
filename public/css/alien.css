@@ -1,0 +1,94 @@
+
+@font-face{ 
+  font-family: 'alienleaguegradbold';
+  src: url('alienleaguegradbold.eot');
+  src: url('alienleaguegradbold.eot?#iefix') format('embedded-opentype'),
+       url('alienleaguegradbold.woff') format('woff'),
+       url('alienleaguegradbold.ttf') format('truetype'),
+       url('alienleaguegradbold.svg#webfont') format('svg');
+     }
+
+body {
+  background-color: #000000;
+  font-family: 'alienleaguegradbold';
+}
+
+.container-fluid {
+    background-color: #000000;
+    color: #1CB200;
+}
+
+p {
+  color: gray;
+}
+
+ .hr {
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  position: fixed;
+  top: 15px;
+  left: -10px;
+  width: 55px;
+}
+
+
+.hr2 {
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  position: fixed;
+  top: 15px;
+  right: 1075px;
+  width: 55px;
+}
+
+.hr3 {
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  position: fixed;
+  top: 15px;
+  right: 540px;
+  width: 55px;
+}
+
+.hr4 {
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  position: fixed;
+  top: 15px;
+  right: -20px;
+  width: 45px;
+}
+a:link{
+  color:#1CB200;
+}
+a:visited{
+  color:#1CB200;
+}
+a:hover{
+  color:purple;
+}
+a:focus{
+  color:red;
+}
+a:active{
+  color:red;
+}
+
+.footer {
+  background-color: black;
+  color: #1CB200;
+}
+
+

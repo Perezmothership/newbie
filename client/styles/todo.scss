@@ -1,0 +1,37 @@
+@import url(https://fonts.googleapis.com/css?family=bangers);
+
+.todo-container {
+  width: 600px;
+  margin: auto;
+  margin-top: auto;
+  text-align: center;
+  bottom-margin: 20px;
+  font-family: bangers;
+  border-bottom-width: thick;
+  border-color: black;
+};
+
+.add-todo-container {
+  display: inline-block;
+  width: 295px;
+  margin: auto;
+};
+
+.add-todo-container {
+  padding-right: none;
+  text-align: right;
+};
+
+ul {
+  border-style: solid;
+  border-width: 17px;
+  border-color: black;
+};
+
+h1 {
+  color: #ff704d;
+};
+
+body {
+  background-color: #cccccc;
+}

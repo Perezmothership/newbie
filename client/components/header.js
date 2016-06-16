@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import navbar from 'templates/navbar.html';
 
-  var app = {
+var app = {
     init: function(){
       app.render();
     },
@@ -11,4 +11,3 @@ import navbar from 'templates/navbar.html';
   };
 
 module.exports = app;
-   

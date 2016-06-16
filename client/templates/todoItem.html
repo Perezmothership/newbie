@@ -1,9 +1,14 @@
-<div class="col-md-2">
-    <input type="checkbox" {{#if completed}}checked{{/if}}>
+<div class="col-sm-1">
+{{#if completed}}
+    <input class="completed-Checkbox" type="checkbox" checked>
+    {{else}}
+    <input class="completed-Checkbox" type="checkbox">
+    {{/if}} 
   </div>
-  <div class="col-md-8 title" >{{title}}</div>
-    <input type="text" class="form-control" value="{{title}}" data-id="{{id}}">
-<div class="col-md-2">
+  <div class="col-sm-10 title" >{{title}}</div>
+  <div class="col-sm-10 title-edit hidden">
+    <input type="text" class="form-control edit-input" value="{{title}}">
+<div class="col-sm-1">
     <button type="button" class="close" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>

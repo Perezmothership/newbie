@@ -18349,14 +18349,21 @@
 	      }
 	
 	    });
-	
-	    // gets the data
 	  },
 	  save: function save() {
-	    // var data = this.get('todos');
-	    // data = this.applySchema(data);
-	    // lscache.set('todos', data);
-	    // saves the data
+	    var that = this;
+	    var todos = this.get('todos');
+	    $.ajax({
+	      url: '/api',
+	      method: 'POST',
+	      data: { todos: JSON.stringify(todos) },
+	      complete: function complete(response) {
+	        var dataString = response.responseText;
+	        var data = JSON.parse(dataString);
+	        data = that.applySchema(data);
+	        that.set('todos', data);
+	      }
+	    });
 	  },
 	  applySchema: function applySchema(todos) {
 	    var data = todos;

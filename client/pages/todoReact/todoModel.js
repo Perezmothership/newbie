@@ -1,16 +1,19 @@
 var $ = require('jquery');
 import _ from 'underscore';
 import Backbone from 'backbone';
-import lscache from 'lscache';
+
+// Model
 
 var TodoModel = Backbone.Model.extend({
   defaults: {
-    todos: []  
+    todos: []
   },
   todoSchema: {
     id: 0,
     title: '',
-    completed: false
+    completed: false,
+    isEditing: false
+
   },
   fetch: function(){
     var that = this;
@@ -23,7 +26,6 @@ var TodoModel = Backbone.Model.extend({
         data = that.applySchema(data);
         that.set('todos', data);
       }
-
     });
   },
   save: function(){
@@ -38,9 +40,9 @@ var TodoModel = Backbone.Model.extend({
         var data = JSON.parse(dataString);
         data = that.applySchema(data);
         that.set('todos', data);
+        that.trigger('change');
       }
-  });
-
+    });
   }, 
   applySchema: function(todos){
     var data = todos;
@@ -50,8 +52,6 @@ var TodoModel = Backbone.Model.extend({
       todo.id = index;
       return _.defaults(todo, schema);
     });
-
-
     return data;
   },
   addItem: function(newTitle){
@@ -62,6 +62,7 @@ var TodoModel = Backbone.Model.extend({
     this.save();
   },
   removeItem: function(id){
+    // finally actually remove the damn thing
     var todos = this.get('todos');
     todos.splice(id, 1);
     this.save();
@@ -77,6 +78,14 @@ var TodoModel = Backbone.Model.extend({
     var todos = this.get('todos');
     var item = _.findWhere(todos, {id: id});
     item.title = newTitle;
+    item.isEditing = false;
+    this.set('todos', todos);
+    this.save();
+  },
+  startEditing: function(id){
+    var todos = this.get('todos');
+    var item = _.findWhere(todos, {id: id});
+    item.isEditing = true;
     this.set('todos', todos);
     this.save();
   }

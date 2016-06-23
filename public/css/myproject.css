@@ -1,0 +1,32 @@
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);
+
+.nav-brand {
+  width: 150px;
+	padding: 0px 7px 0px 0px;
+	font-size: 25px;
+  text-decoration: none !important;
+	line-height: 44px;
+	letter-spacing: -1px;
+ color: white;
+ color:#fff;
+background-color:#232323;
+text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18;
+  
+}
+
+.mainbody {
+  font-family: 'Indie Flower', cursive;
+  text-align: left;
+  background-color:#333333;
+  color: white;
+  
+  }
+footer {
+  bottom: 0;
+  background-color:#333333;
+  padding:10px;
+  height:100%;
+  
+
+}

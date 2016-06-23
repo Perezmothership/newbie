@@ -1,8 +1,8 @@
 import $ from 'jquery';
-import handlebars from 'handlebars';
+import Handlebars from 'handlebars';
 import photoTemplate from 'templates/flickrImage.html';
 
-var compiledTemplate = handlebars.compile(photoTemplate);
+var compiledTemplate = Handlebars.compile(photoTemplate);
 
 var app = {
   init: function(){
@@ -17,8 +17,8 @@ var app = {
     app.$input.on('keypress', app.searchKeypress);
   },
   searchKeypress: function(event){
-  if (event.which === 13) {
-  app.doSearch();
+    if (event.which === 13) {
+      app.doSearch();
     }
   },
   doSearch: function(){
@@ -29,7 +29,7 @@ var app = {
       data: {
         text: phrase,
         method: 'flickr.photos.search',
-        api_key:'731717db25329eb6aa65703cb6b71970',
+        api_key: '731717db25329eb6aa65703cb6b71970',
         format: 'json',
         per_page: 30
       },
@@ -43,8 +43,12 @@ var app = {
   },
   renderResults: function(data){
     var html = compiledTemplate(data.photos.photo[0]);
+    var myPhotos = data.photos.photo;
+    myPhotos.forEach(function(item){
+      html = html + compiledTemplate(item);
+    });
+    // append result to the .search-result div
     $('.search-results').html(html);
-
   }
 };
 

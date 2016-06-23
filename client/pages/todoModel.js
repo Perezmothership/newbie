@@ -1,11 +1,12 @@
 var $ = require('jquery');
 import _ from 'underscore';
 import Backbone from 'backbone';
-import lscache from 'lscache';
+
+// Model
 
 var TodoModel = Backbone.Model.extend({
   defaults: {
-    todos: []  
+    todos: []
   },
   todoSchema: {
     id: 0,
@@ -23,7 +24,6 @@ var TodoModel = Backbone.Model.extend({
         data = that.applySchema(data);
         that.set('todos', data);
       }
-
     });
   },
   save: function(){
@@ -38,9 +38,9 @@ var TodoModel = Backbone.Model.extend({
         var data = JSON.parse(dataString);
         data = that.applySchema(data);
         that.set('todos', data);
+        that.trigger('change');
       }
-  });
-
+    });
   }, 
   applySchema: function(todos){
     var data = todos;
@@ -50,8 +50,6 @@ var TodoModel = Backbone.Model.extend({
       todo.id = index;
       return _.defaults(todo, schema);
     });
-
-
     return data;
   },
   addItem: function(newTitle){
@@ -62,6 +60,7 @@ var TodoModel = Backbone.Model.extend({
     this.save();
   },
   removeItem: function(id){
+    // finally actually remove the damn thing
     var todos = this.get('todos');
     todos.splice(id, 1);
     this.save();

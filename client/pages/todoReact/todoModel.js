@@ -13,7 +13,6 @@ var TodoModel = Backbone.Model.extend({
     title: '',
     completed: false,
     isEditing: false
-
   },
   fetch: function(){
     var that = this;
@@ -67,14 +66,14 @@ var TodoModel = Backbone.Model.extend({
     todos.splice(id, 1);
     this.save();
   },
-  itemCompleted: function(id, isCompleted){
+  itemCompleted: function(id){
     var todos = this.get('todos');
     var item = _.findWhere(todos, {id: id});
-    item.completed = isCompleted;
+    item.completed = !item.Completed;
     this.set('todos', todos);
     this.save();
   },
-  editTitle: function(newTitle, id){
+  editTitle: function(id, newTitle){
     var todos = this.get('todos');
     var item = _.findWhere(todos, {id: id});
     item.title = newTitle;

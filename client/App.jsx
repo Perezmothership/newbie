@@ -1,7 +1,7 @@
 
 import $ from 'jquery';
 import 'styles/main.scss';
-import TodoControllerView from 'pages/todoReact/todoController';
+import TodoControllerView from 'pages/todoReact/todoListView';
 import project from 'pages/project';
 import photoSearch from 'pages/photoSearch';
 import funnySquares from 'pages/funnySquares';
@@ -17,7 +17,7 @@ $(function(){
   // our first javascript router
   switch (url) {
     case '/pages/todo.html':
-    var todoControllerView = new TodoControllerView();
+    var todoListView = new TodoControllerView();
     break;
     case '/pages/photoSearch.html':
     photoSearch.init();

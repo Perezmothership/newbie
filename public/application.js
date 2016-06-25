@@ -54,9 +54,9 @@
 	
 	__webpack_require__(2);
 	
-	var _pagesTodoReactTodoController = __webpack_require__(6);
+	var _pagesTodoReactTodoListView = __webpack_require__(6);
 	
-	var _pagesTodoReactTodoController2 = _interopRequireDefault(_pagesTodoReactTodoController);
+	var _pagesTodoReactTodoListView2 = _interopRequireDefault(_pagesTodoReactTodoListView);
 	
 	var _pagesProject = __webpack_require__(170);
 	
@@ -84,7 +84,7 @@
 	  // our first javascript router
 	  switch (url) {
 	    case '/pages/todo.html':
-	      var todoControllerView = new _pagesTodoReactTodoController2['default']();
+	      var todoListView = new _pagesTodoReactTodoListView2['default']();
 	      break;
 	    case '/pages/photoSearch.html':
 	      _pagesPhotoSearch2['default'].init();
@@ -9988,14 +9988,17 @@
 	
 	var _pagesTodoReactTodoModel2 = _interopRequireDefault(_pagesTodoReactTodoModel);
 	
-	var _pagesTodoReactTodoView = __webpack_require__(169);
+	var _pagesTodoReactTodoView = __webpack_require__(168);
 	
 	var _pagesTodoReactTodoView2 = _interopRequireDefault(_pagesTodoReactTodoView);
 	
-	// Controller View
+	var _pagesTodoReactTodoDispatcher = __webpack_require__(169);
 	
+	var _pagesTodoReactTodoDispatcher2 = _interopRequireDefault(_pagesTodoReactTodoDispatcher);
+	
+	// Controller View
 	var $ = __webpack_require__(1);
-	var TodoControllerView = _backbone2['default'].View.extend({
+	var TodoListView = _backbone2['default'].View.extend({
 	  el: '.todo-container',
 	  model: _pagesTodoReactTodoModel2['default'],
 	  events: {
@@ -10010,27 +10013,22 @@
 	    var todos = this.model.get('todos');
 	    var $ul = this.$el.find('.list-group');
 	    $ul.html('');
-	    var controller = this;
 	    todos.forEach(function (todo) {
 	      var $li = $('<li class="list-group-item row"></li>');
 	      $ul.append($li);
-	      _reactDom2['default'].render(_react2['default'].createElement(_pagesTodoReactTodoView2['default'], { data: todo, controller: controller }), $li[0] // get original DOMnode from jQuery object
+	      _reactDom2['default'].render(_react2['default'].createElement(_pagesTodoReactTodoView2['default'], { data: todo }), $li[0] // get original DOMnode from jQuery object
 	      );
 	    });
 	  },
 	  addTodoItem: function addTodoItem() {
 	    var $input = this.$el.find('.input-name');
 	    var newTitle = $input.val();
-	    if (newTitle === '') {
-	      return;
-	    }
-	    this.model.addItem(newTitle);
+	    _pagesTodoReactTodoDispatcher2['default'].addTodo(newTitle);
 	    $input.val('');
-	    this.render();
 	  }
 	});
 	
-	module.exports = TodoControllerView;
+	module.exports = TodoListView; // notice the var above
 
 /***/ },
 /* 7 */
@@ -33146,7 +33144,6 @@
 	    title: '',
 	    completed: false,
 	    isEditing: false
-	
 	  },
 	  fetch: function fetch() {
 	    var that = this;
@@ -33200,14 +33197,14 @@
 	    todos.splice(id, 1);
 	    this.save();
 	  },
-	  itemCompleted: function itemCompleted(id, isCompleted) {
+	  itemCompleted: function itemCompleted(id) {
 	    var todos = this.get('todos');
 	    var item = _underscore2['default'].findWhere(todos, { id: id });
-	    item.completed = isCompleted;
+	    item.completed = !item.Completed;
 	    this.set('todos', todos);
 	    this.save();
 	  },
-	  editTitle: function editTitle(newTitle, id) {
+	  editTitle: function editTitle(id, newTitle) {
 	    var todos = this.get('todos');
 	    var item = _underscore2['default'].findWhere(todos, { id: id });
 	    item.title = newTitle;
@@ -33229,20 +33226,27 @@
 	module.exports = todoModel;
 
 /***/ },
-/* 168 */,
-/* 169 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _jquery = __webpack_require__(1);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
 	
 	var _react = __webpack_require__(7);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var TodoItem = _react2["default"].createClass({
-	  displayName: "TodoItem",
+	var _pagesTodoReactTodoDispatcher = __webpack_require__(169);
+	
+	var _pagesTodoReactTodoDispatcher2 = _interopRequireDefault(_pagesTodoReactTodoDispatcher);
+	
+	var TodoItem = _react2['default'].createClass({
+	  displayName: 'TodoItem',
 	
 	  propTypes: {
 	    data: _react.PropTypes.shape({
@@ -33254,41 +33258,40 @@
 	  },
 	  render: function render() {
 	    var todo = this.props.data;
-	
-	    var title = _react2["default"].createElement(
-	      "div",
-	      { className: "col-sm-10", onClick: this.titleClick },
+	    var title = _react2['default'].createElement(
+	      'div',
+	      { className: 'col-sm-10', onClick: this.titleClick },
 	      todo.title
 	    );
 	    if (todo.isEditing) {
-	      title = _react2["default"].createElement(
-	        "div",
-	        { className: "col-sm-10" },
-	        _react2["default"].createElement("input", { type: "text", className: "form-control", defaultValue: todo.title, onChange: function () {
+	      title = _react2['default'].createElement(
+	        'div',
+	        { className: 'col-sm-10' },
+	        _react2['default'].createElement('input', { type: 'text', className: 'form-control', defaultValue: todo.title, onChange: function () {
 	            return true;
 	          }, onKeyPress: this.editKeypress })
 	      );
 	    }
 	
-	    return _react2["default"].createElement(
-	      "div",
+	    return _react2['default'].createElement(
+	      'div',
 	      null,
-	      _react2["default"].createElement(
-	        "div",
-	        { className: "col-sm-1" },
-	        _react2["default"].createElement("input", { type: "checkbox", checked: todo.completed, onChange: this.handleComplete })
+	      _react2['default'].createElement(
+	        'div',
+	        { className: 'col-sm-1' },
+	        _react2['default'].createElement('input', { type: 'checkbox', checked: todo.completed, onChange: this.handleComplete })
 	      ),
 	      title,
-	      _react2["default"].createElement(
-	        "div",
-	        { className: "col-sm-1" },
-	        _react2["default"].createElement(
-	          "button",
-	          { type: "button", "aria-label": "Close", onClick: this.handleClose },
-	          _react2["default"].createElement(
-	            "span",
-	            { "aria-hidden": "true" },
-	            "×"
+	      _react2['default'].createElement(
+	        'div',
+	        { className: 'col-sm-1' },
+	        _react2['default'].createElement(
+	          'button',
+	          { type: 'button', 'aria-label': 'Close', onClick: this.handleClose },
+	          _react2['default'].createElement(
+	            'span',
+	            { 'aria-hidden': 'true' },
+	            '×'
 	          )
 	        )
 	      )
@@ -33296,28 +33299,61 @@
 	  },
 	  handleComplete: function handleComplete() {
 	    var id = this.props.data.id;
-	    var newValue = !this.props.data.completed;
-	    this.props.controller.model.itemCompleted(id, newValue);
+	    _pagesTodoReactTodoDispatcher2['default'].clickComplete(id);
 	  },
 	  handleClose: function handleClose() {
 	    var id = this.props.data.id;
-	    this.props.controller.model.removeItem(id);
+	    _pagesTodoReactTodoDispatcher2['default'].removeTodo(id);
 	  },
 	  titleClick: function titleClick() {
 	    var id = this.props.data.id;
-	    this.props.controller.model.startEditing(id);
+	    _pagesTodoReactTodoDispatcher2['default'].startEditMode(id);
 	  },
 	  editKeypress: function editKeypress(event) {
-	    if (event.which === 13) {
-	      var id = this.props.data.id;
-	      var newTitle = $('li').eq(id).find('input[type="text"]').val();
-	      debugger;
-	      this.props.controller.model.editTitle(newTitle, id);
-	    }
+	    var id = this.props.data.id;
+	    var newTitle = (0, _jquery2['default'])('li').eq(id).find('input[type="text"]').val();
+	    _pagesTodoReactTodoDispatcher2['default'].editTodoTitle(id, newTitle, event);
 	  }
 	});
 	
 	module.exports = TodoItem;
+
+/***/ },
+/* 169 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _pagesTodoReactTodoModel = __webpack_require__(167);
+	
+	var _pagesTodoReactTodoModel2 = _interopRequireDefault(_pagesTodoReactTodoModel);
+	
+	var dispatcher = {
+	  clickComplete: function clickComplete(id) {
+	    _pagesTodoReactTodoModel2['default'].itemCompleted(id);
+	  },
+	  addTodo: function addTodo(title) {
+	    if (title !== '' && typeof title === 'string') {
+	      _pagesTodoReactTodoModel2['default'].addItem(title);
+	    }
+	  },
+	  removeTodo: function removeTodo(id) {
+	    _pagesTodoReactTodoModel2['default'].removeItem(id);
+	  },
+	  editTodoTitle: function editTodoTitle(id, title, event) {
+	    if (event.which === 13 && typeof title === 'string' && title.length > 0) {
+	      _pagesTodoReactTodoModel2['default'].editTitle(id, title);
+	    }
+	  },
+	  startEditMode: function startEditMode(id) {
+	    _pagesTodoReactTodoModel2['default'].startEditing(id);
+	  }
+	
+	};
+	
+	module.exports = dispatcher;
 
 /***/ },
 /* 170 */

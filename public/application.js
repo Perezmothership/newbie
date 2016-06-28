@@ -10026,6 +10026,14 @@
 	    var newTitle = $input.val();
 	    _pagesTodoReactTodoDispatcher2['default'].addTodo(newTitle);
 	    $input.val('');
+	  },
+	  checkAddTodoItem: function checkAddTodoItem() {
+	    var $input = this.$el.find('.input-name');
+	    var newTitle = $input.val();
+	    if (event.which === 13) {
+	      _pagesTodoReactTodoDispatcher2['default'].addTodo(newTitle);
+	      $input.val('');
+	    }
 	  }
 	});
 	

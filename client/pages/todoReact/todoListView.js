@@ -37,6 +37,14 @@ var TodoListView = Backbone.View.extend({
     var newTitle = $input.val();
     dispatcher.addTodo(newTitle);
     $input.val('');
+  },
+  checkAddTodoItem: function(){
+    var $input = this.$el.find('.input-name');
+    var newTitle = $input.val();
+    if (event.which === 13) {
+      dispatcher.addTodo(newTitle);
+      $input.val('');
+    }
   }
 });
 

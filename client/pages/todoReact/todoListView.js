@@ -11,7 +11,8 @@ var TodoListView = Backbone.View.extend({
   el: '.todo-container',
   model: todoModel,
   events: {
-    'click .btn-add': 'addTodoItem'
+    'click .btn-add': 'addTodoItem',
+    'keydown .input-name': 'checkAddTodoItem'
   },
   initialize: function(){
     this.model.fetch();

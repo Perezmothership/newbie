@@ -69,7 +69,7 @@ var TodoModel = Backbone.Model.extend({
   itemCompleted: function(id){
     var todos = this.get('todos');
     var item = _.findWhere(todos, {id: id});
-    item.completed = !item.Completed;
+    item.completed = !item.completed;
     this.set('todos', todos);
     this.save();
   },
@@ -77,6 +77,13 @@ var TodoModel = Backbone.Model.extend({
     var todos = this.get('todos');
     var item = _.findWhere(todos, {id: id});
     item.title = newTitle;
+    item.isEditing = false;
+    this.set('todos', todos);
+    this.save();
+  },
+  doneEditing: function(id){
+    var todos = this.get('todos');
+    var item = _.findWhere(todos, {id: id});
     item.isEditing = false;
     this.set('todos', todos);
     this.save();

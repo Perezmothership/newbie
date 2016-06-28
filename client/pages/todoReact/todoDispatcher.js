@@ -1,6 +1,7 @@
 import todoModel from 'pages/todoReact/todoModel';
 
 var dispatcher = {
+  init: function(){},
   clickComplete: function(id){
     todoModel.itemCompleted(id);
   },
@@ -20,8 +21,14 @@ var dispatcher = {
       event.which === 13 
       && typeof title === 'string'
       && title.length > 0
-      ) {
+      )
+    {
       todoModel.editTitle(id, title);
+    } else if (
+      event.which === 27
+    ) 
+    {
+      todoModel.doneEditing(id);
     }
   },
   startEditMode: function(id){

@@ -9959,7 +9959,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"todo-container":"todo-container","add-todo-container":"add-todo-container","square":"square","square-container":"square-container","square1":"square1","square2":"square2","square3":"square3","square4":"square4","square5":"square5","title":"title","overlay":"overlay","splash":"splash","overlay-inner":"overlay-inner","message":"message","load":"load","load2":"load2","item":"item"};
+	module.exports = {"todo-container":"todo-container","add-todo-container":"add-todo-container","square":"square","square-container":"square-container","square1":"square1","square2":"square2","square3":"square3","square4":"square4","square5":"square5","startsplash":"startsplash","title":"title","overlay":"overlay","splash":"splash","overlay-inner":"overlay-inner","message":"message","load":"load","load2":"load2","item":"item"};
 
 /***/ },
 /* 3 */,
@@ -10002,7 +10002,8 @@
 	  el: '.todo-container',
 	  model: _pagesTodoReactTodoModel2['default'],
 	  events: {
-	    'click .btn-add': 'addTodoItem'
+	    'click .btn-add': 'addTodoItem',
+	    'keydown .input-name': 'checkAddTodoItem'
 	  },
 	  initialize: function initialize() {
 	    this.model.fetch();
@@ -33200,7 +33201,7 @@
 	  itemCompleted: function itemCompleted(id) {
 	    var todos = this.get('todos');
 	    var item = _underscore2['default'].findWhere(todos, { id: id });
-	    item.completed = !item.Completed;
+	    item.completed = !item.completed;
 	    this.set('todos', todos);
 	    this.save();
 	  },
@@ -33208,6 +33209,13 @@
 	    var todos = this.get('todos');
 	    var item = _underscore2['default'].findWhere(todos, { id: id });
 	    item.title = newTitle;
+	    item.isEditing = false;
+	    this.set('todos', todos);
+	    this.save();
+	  },
+	  doneEditing: function doneEditing(id) {
+	    var todos = this.get('todos');
+	    var item = _underscore2['default'].findWhere(todos, { id: id });
 	    item.isEditing = false;
 	    this.set('todos', todos);
 	    this.save();
@@ -33269,7 +33277,7 @@
 	        { className: 'col-sm-10' },
 	        _react2['default'].createElement('input', { type: 'text', className: 'form-control', defaultValue: todo.title, onChange: function () {
 	            return true;
-	          }, onKeyPress: this.editKeypress })
+	          }, onKeyDown: this.editKeypress })
 	      );
 	    }
 	
@@ -33331,6 +33339,7 @@
 	var _pagesTodoReactTodoModel2 = _interopRequireDefault(_pagesTodoReactTodoModel);
 	
 	var dispatcher = {
+	  init: function init() {},
 	  clickComplete: function clickComplete(id) {
 	    _pagesTodoReactTodoModel2['default'].itemCompleted(id);
 	  },
@@ -33345,6 +33354,8 @@
 	  editTodoTitle: function editTodoTitle(id, title, event) {
 	    if (event.which === 13 && typeof title === 'string' && title.length > 0) {
 	      _pagesTodoReactTodoModel2['default'].editTitle(id, title);
+	    } else if (event.which === 27) {
+	      _pagesTodoReactTodoModel2['default'].doneEditing(id);
 	    }
 	  },
 	  startEditMode: function startEditMode(id) {
@@ -45528,7 +45539,7 @@
 /* 249 */
 /***/ function(module, exports) {
 
-	module.exports = "\n\n<nav>\n  <a role=\"menuitem\" href=\"/pages/todo.html\"> Todo Applications </a>\n  <a role=\"menuitem\" href=\"/pages/project.html\"> My Projects </a>\n  <a role=\"menuitem\" href=\"/pages/funnysquares.html\"> Funny Squares </a>\n  <a role=\"menuitem\" href=\"/pages/alientribute.html\"> Alien Tribute Page</a>\n  <a role=\"menuitem\" href=\"/pages/photoSearch.html\">Photo Search</a>\n</nav>\n\n\n";
+	module.exports = "\n\n<nav>\n  <a role=\"menuitem\" href=\"/pages/todo.html\"> Todo Applications </a>\n  <a role=\"menuitem\" href=\"/pages/project.html\"> My Projects </a>\n  <a role=\"menuitem\" href=\"/pages/funnysquares.html\"> Funny Squares </a>\n  <a role=\"menuitem\" href=\"/pages/alientribute.html\"> Alien Tribute Page</a>\n  <a role=\"menuitem\" href=\"/pages/photoSearch.html\">Photo Search</a>\n  <a role=\"menuitem\" href=\"/pages/splashpage.html\">Splash Page</a>\n</nav>\n\n\n";
 
 /***/ }
 /******/ ]);

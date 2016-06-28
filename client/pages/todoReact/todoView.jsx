@@ -17,7 +17,7 @@ var TodoItem = React.createClass({
     if (todo.isEditing) {
       title = (
         <div className="col-sm-10">
-          <input type="text" className="form-control" defaultValue={todo.title} onChange={function(){return true; }} onKeyPress={this.editKeypress}></input>
+          <input type="text" className="form-control" defaultValue={todo.title} onChange={function(){return true; }} onKeyDown={this.editKeypress}></input>
         </div> 
         );
     }

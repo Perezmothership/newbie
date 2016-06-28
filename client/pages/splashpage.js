@@ -1,3 +1,7 @@
+import photoTemplate from 'templates/splashpage.html';
+
+var $ = require('jquery');
+
 $.fn.center = function () {
   this.css("position","absolute");
   this.css("top", Math.max(0, (

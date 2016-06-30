@@ -1,11 +1,11 @@
 
 @font-face{ 
   font-family: 'alienleaguegradbold';
-  src: url('alienleaguegradbold.eot');
-  src: url('alienleaguegradbold.eot?#iefix') format('embedded-opentype'),
-       url('alienleaguegradbold.woff') format('woff'),
-       url('alienleaguegradbold.ttf') format('truetype'),
-       url('alienleaguegradbold.svg#webfont') format('svg');
+  src: url('fonts/alien_league/alienleaguegradbold.eot');
+  src: url('fonts/alien_league/alienleaguegradbold.eot?#iefix') format('embedded-opentype'),
+       url('fonts/alien_league/alienleaguegradbold.woff') format('woff'),
+       url('fonts/alien_league/alienleaguegradbold.ttf') format('truetype'),
+       url('fonts/alien_league/alienleaguegradbold.svg#webfont') format('svg');
      }
 
 body {

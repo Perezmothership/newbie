@@ -40722,6 +40722,7 @@
 	    (0, _jquery2['default'])('body').after(renderedHtml);
 	  }
 	};
+	
 	module.exports = app;
 
 /***/ },

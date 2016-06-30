@@ -15,9 +15,10 @@ var app = {
       var numberOfSquares = 5;
       var renderedHtml = '';
       _.times(numberOfSquares, function(index){
-        renderedHtml += template({id: index + 1});
+        renderedHtml += template({ id: index + 1 });
       });
       $('body').after(renderedHtml);
     }
   };
+
 module.exports = app;

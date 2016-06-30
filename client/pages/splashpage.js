@@ -1,5 +1,4 @@
-import photoTemplate from 'templates/splashpage.html';
-
+ import rawTemplate from 'templates/splashpage.html';
 var $ = require('jquery');
 
 $.fn.center = function () {
@@ -21,3 +20,5 @@ $("#overlay-content").show().center();
 setTimeout(function(){    
   $("#overlay").fadeOut();
 }, 5000);
+
+module.exports = app;

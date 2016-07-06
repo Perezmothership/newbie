@@ -1,3 +1,4 @@
+
 import todoModel from 'pages/todoReact/todoModel';
 
 var dispatcher = {
@@ -10,8 +11,8 @@ var dispatcher = {
       title !== ''
       && typeof title === 'string'
     ) {
-    todoModel.addItem(title);
-      }
+      todoModel.addItem(title);
+    }
   },
   removeTodo: function(id){
     todoModel.removeItem(id);

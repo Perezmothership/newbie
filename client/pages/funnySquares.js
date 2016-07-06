@@ -1,5 +1,5 @@
   
-import $ from 'jquery';
+var $ = require('jquery');
 import _ from 'underscore';
 import rawTemplate from 'templates/funnySquare.html';
 import Handlebars from 'Handlebars';

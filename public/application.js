@@ -9959,7 +9959,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"todo-container":"todo-container","add-todo-container":"add-todo-container","square":"square","square-container":"square-container","square1":"square1","square2":"square2","square3":"square3","square4":"square4","square5":"square5","startsplash":"startsplash","title":"title","overlay":"overlay","splash":"splash","overlay-inner":"overlay-inner","message":"message","load":"load","load2":"load2","item":"item"};
+	module.exports = {"todo-container":"todo-container","add-todo-container":"add-todo-container","btn":"btn","square":"square","square-container":"square-container","square1":"square1","square2":"square2","square3":"square3","square4":"square4","square5":"square5","ricktitle":"ricktitle","overlay":"overlay","splash":"splash","overlay-inner":"overlay-inner","load":"load","load2":"load2","item":"item"};
 
 /***/ },
 /* 3 */,
@@ -35827,10 +35827,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _jquery = __webpack_require__(1);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
 	var _handlebars = __webpack_require__(185);
 	
 	var _handlebars2 = _interopRequireDefault(_handlebars);
@@ -35839,6 +35835,8 @@
 	
 	var _templatesFlickrImageHtml2 = _interopRequireDefault(_templatesFlickrImageHtml);
 	
+	var $ = __webpack_require__(1);
+	
 	var compiledTemplate = _handlebars2['default'].compile(_templatesFlickrImageHtml2['default']);
 	
 	var app = {
@@ -35846,7 +35844,7 @@
 	    app.render();
 	  },
 	  render: function render() {
-	    app.$input = (0, _jquery2['default'])('.search-container input');
+	    app.$input = $('.search-container input');
 	    app.bindEvents();
 	  },
 	  bindEvents: function bindEvents() {
@@ -35859,7 +35857,7 @@
 	  },
 	  doSearch: function doSearch() {
 	    var phrase = app.$input.val();
-	    _jquery2['default'].ajax({
+	    $.ajax({
 	      url: 'https://api.flickr.com/services/rest',
 	      method: 'GET',
 	      data: {
@@ -35884,7 +35882,7 @@
 	      html = html + compiledTemplate(item);
 	    });
 	    // append result to the .search-result div
-	    (0, _jquery2['default'])('.search-results').html(html);
+	    $('.search-results').html(html);
 	  }
 	};
 	
@@ -40690,10 +40688,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _jquery = __webpack_require__(1);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
 	var _underscore = __webpack_require__(166);
 	
 	var _underscore2 = _interopRequireDefault(_underscore);
@@ -40705,6 +40699,8 @@
 	var _Handlebars = __webpack_require__(218);
 	
 	var _Handlebars2 = _interopRequireDefault(_Handlebars);
+	
+	var $ = __webpack_require__(1);
 	
 	var template;
 	var app = {
@@ -40719,7 +40715,7 @@
 	    _underscore2['default'].times(numberOfSquares, function (index) {
 	      renderedHtml += template({ id: index + 1 });
 	    });
-	    (0, _jquery2['default'])('body').after(renderedHtml);
+	    $('body').after(renderedHtml);
 	  }
 	};
 	
@@ -45521,28 +45517,30 @@
 /* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _jquery = __webpack_require__(1);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
 	
 	var _templatesNavbarHtml = __webpack_require__(249);
 	
 	var _templatesNavbarHtml2 = _interopRequireDefault(_templatesNavbarHtml);
 	
+	var $ = global.$ = global.jQuery = __webpack_require__(1);
+	
 	var app = {
 	  init: function init() {
+	    if (!$.dropdown) {
+	      var test = __webpack_require__(171);
+	    }
 	    app.render();
 	  },
 	  render: function render() {
-	    (0, _jquery2['default'])('header').append(_templatesNavbarHtml2['default']);
+	    $('header').append(_templatesNavbarHtml2['default']);
 	  }
 	};
 	
 	module.exports = app;
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 249 */

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=bangers);.todo-container {
+@import url(https://fonts.googleapis.com/css?family=bangers);@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);.todo-container {
   width: 550px;
   margin: auto;
   margin-top: auto;
@@ -24,6 +24,20 @@ ul {
   border-style: solid;
   border-width: 17px;
   border-color: black;
+}
+
+.btn {
+  position: absolute;
+  background-color: grey;
+  right: 5px;
+  top: 10px;
+  border: 1px solid;
+  border-radius: 20px;
+  box-shadow: none;
+  left: 10px;
+  padding: 5px;
+  margin-top: 5px;
+  text-decoration: none;
 }
 
 h1 {
@@ -81,27 +95,30 @@ h1 {
   transition: transform 1.5s;
 }
 
-.startsplash {
+startsplash {
   position: relative;
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: black;
+  background-color: #000000;
   color: white;
 }
 
 img {
   position: relative;
+  width: 800px;
+  border: 1px dashed #49ff18;
+  border-radius: 20px;
 }
 
-.title {
+.ricktitle {
+  position: left;
   margin: 0;
-  width: 320px;
-  padding: 0px 0px 0px 0px;
+  width: 400px;
+  padding: 5px 5px 5px 5px;
   font-size: 45px;
   line-height: 44px;
   letter-spacing: -2px;
-  color: white;
   color: #fff;
   background-color: #000000;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18;
@@ -124,17 +141,6 @@ img {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-}
-
-.message {
-  border: 10px solid transparent;
-  border-radius: 10px;
-  background: #000000;
-  display: inline-block;
-  vertical-align: middle;
-  width: 50%;
-  text-align: left;
-  padding: 10px;
 }
 
 @-webkit-keyframes splash {
@@ -247,8 +253,8 @@ img {
 
 .load {
   position: absolute;
-  top: 56%;
-  left: 17%;
+  top: 455px;
+  left: 415px;
   transform: translate(-57%, -57%);
 }
 
@@ -265,8 +271,8 @@ img {
 
 .load2 {
   position: absolute;
-  top: 56%;
-  right: 32%;
+  top: 455px;
+  right: 340px;
   transform: translate(-55%, -55%);
 }
 

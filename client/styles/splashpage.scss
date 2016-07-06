@@ -1,22 +1,27 @@
-.startsplash{
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);
+
+startsplash{
   position:relative;
   height:100%;
   margin:0;
   padding:0;
-  background-color:black;
+  background-color:#000000;
   color: white;
 }
 img {
   position:relative;
+  width:800px;
+  border:1px dashed #49ff18;
+  border-radius:20px;
 }
-.title{
+.ricktitle{
+  position:left;
   margin: 0;
-  width:320px;
-  padding: 0px 0px 0px 0px;
+  width:400px;
+  padding: 5px 5px 5px 5px;
   font-size: 45px;
   line-height: 44px;
   letter-spacing: -2px;
- color: white;
  color:#fff;
 background-color:#000000;
 text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18;
@@ -37,16 +42,6 @@ text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30
   display:table-cell;
   vertical-align:middle;
   text-align:center;
-}
-.message {
-  border:10px solid rgba(0, 0, 0, 0);
-  border-radius:10px;
-  background:#000000;
-  display:inline-block;
-  vertical-align:middle;
-  width:50%;
-  text-align:left;
-  padding:10px;
 }
 @-webkit-keyframes splash {
   0%   {opacity: 0;top:0;left:0}
@@ -79,8 +74,8 @@ text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30
 
 .load {
   position: absolute;
-  top: 56%;
-  left: 17%;
+  top: 455px;
+  left: 415px;
   transform: translate(-57%, -57%);
 }
 
@@ -97,8 +92,8 @@ text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30
 
 .load2 {
   position: absolute;
-  top: 56%;
-  right: 32%;
+  top: 455px;
+  right: 340px;
   transform: translate(-55%, -55%);
 }
 

@@ -1,5 +1,4 @@
- import rawTemplate from 'templates/splashpage.html';
-var $ = require('jquery');
+import $ from 'jquery';
 
 $.fn.center = function () {
   this.css("position","absolute");
@@ -20,5 +19,3 @@ $("#overlay-content").show().center();
 setTimeout(function(){    
   $("#overlay").fadeOut();
 }, 5000);
-
-module.exports = app;

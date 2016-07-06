@@ -1,4 +1,4 @@
-import $ from 'jquery';
+var $ = require('jquery');
 import Handlebars from 'handlebars';
 import photoTemplate from 'templates/flickrImage.html';
 

@@ -1,0 +1,60 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400);
+
+body {
+  background:fixed;
+  margin:50px;
+  font-family: 'Quicksand', sans-serif;
+  background-color:#C2DFFF;
+  background-image: url("http://s33.postimg.org/mljteyze7/aquaponics_fish.png");
+}
+.top-header {
+  position: fixed;
+  margin:auto;
+  padding:none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background-color: lightgreen;
+  border:2px dotted #00d9a3;
+} 
+.fish-title{
+  background-color:#ff4357;
+  width:600px;
+  text-align:center;
+  position:relative;
+  left:200px;
+  border: 1px solid purple;
+  border-radius:5px;
+  opacity:80%;
+  
+}
+  .btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius:5px;
+    link-decoration:none;
+  }
+button:focus { outline-style: none; }
+
+
+
+.fishimg {
+  position: relative;
+  border:2px double #00cc99;
+  border-radius:10px;
+  width:500px;
+}
+
+#maintext {
+  width:500px;
+  text-align:right;
+  border:2px double #00cc99;
+  background-color:#b2ffb2;
+  border-radius:10px;
+  }
+
+span.capA {
+  font-size:xx-large;
+}

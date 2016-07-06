@@ -1,6 +1,6 @@
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);
 
-startsplash{
+.startsplash{
   position:relative;
   height:100%;
   margin:0;
@@ -74,8 +74,8 @@ text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30
 
 .load {
   position: absolute;
-  top: 455px;
-  left: 415px;
+  top: 450px;
+  left: 405px;
   transform: translate(-57%, -57%);
 }
 
@@ -92,8 +92,8 @@ text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30
 
 .load2 {
   position: absolute;
-  top: 455px;
-  right: 340px;
+  top: 450px;
+  right: 325px;
   transform: translate(-55%, -55%);
 }
 

@@ -27,6 +27,19 @@ ul {
   border-width: 17px;
   border-color: black;
 };
+.btn {
+  position:absolute;
+  background-color:grey;
+  right:5px;
+  top:10px;
+  border:1px solid;
+  border-radius:20px;
+  box-shadow: none;
+  left:10px;
+  padding:5px;
+  margin-top: 5px;
+  text-decoration:none;
+};
 
 h1 {
   color: #ff704d;

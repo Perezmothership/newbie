@@ -1,0 +1,60 @@
+@import url(https://fonts.googleapis.com/css?family=Faster+One);
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);
+
+.navbar-brand {
+  width: 200px;
+	padding: 5px 5px 5px 10px;
+	font-size: 30px;
+	line-height: 44px;
+	letter-spacing: -2px;
+ color:white;
+ color:#fff;
+background-color:#232323;
+text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18;
+  
+}
+
+html, body {
+  background: #7c7d75;
+  position: relative;
+}
+#mtgtitle {
+text-align: left;
+  color: #b30000;
+  padding-left:10px;
+  letter-spacing: 4px;
+  font-family: 'Faster One', cursive;
+}
+
+.mtgbody {
+  color: white;
+  background: #7c7d75; 
+  font-size: 20px;
+  margin:0px;
+}
+
+dl
+{
+  color: #d5f3f6;
+  list-style-type: none;
+  font-size: medium;
+}
+
+dd{
+  margin: 3px;
+  padding-left: 20px;
+  letter-spacing:1px;
+}
+
+.bold {
+font-weight:bold;
+  color: #171fbd;;
+}
+
+.img-rounded {
+  width:450px; 
+  height: auto;
+  margin: 5px;
+  border-radius: 5px;
+  border: 5px white ridge;
+}

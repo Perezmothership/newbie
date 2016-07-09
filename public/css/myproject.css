@@ -12,9 +12,14 @@
  color:#fff;
 background-color:#232323;
 text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18;
-  
 }
-
+#ricky {
+    float: right;
+    margin: 10px 10px 10px 10px;
+  border: 10px #0047b3 solid;
+  border-radius: 60px;
+  width: 280px;
+}
 .mainbody {
   font-family: 'Indie Flower', cursive;
   text-align: left;
@@ -25,5 +30,5 @@ text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30
   bottom: 0;
   box-shadow: 0px 500px 0px 500px #333333;
   background-color:#333333;
-  padding:10px;
+  padding:5px 30px 5px 20px;
 }

@@ -1,0 +1,23 @@
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);
+@import url(https://fonts.googleapis.com/css?family=Playball);
+
+body {
+  text-align:left;
+  background-color:#c5edfd !important;
+  }
+
+.container {
+   font-family: 'Playball', cursive;
+  letter-spacing: 5px;
+}
+.navbar-brand {
+  width: 300px;
+  padding: 0px 0px 0px 5px;
+  font-size: 25px;
+  line-height: 44px;
+  letter-spacing: 1px;
+ color:white;
+ color:#fff;
+background-color:#232323;
+text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18;
+}
